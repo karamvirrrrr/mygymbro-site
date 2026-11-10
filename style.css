@@ -1,0 +1,425 @@
+/* Manrope (SIL Open Font License, fonts/Manrope-OFL.txt), served from this
+   site so no visitor data goes to a font service. */
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* MyGymBro site. One file, no build step. Dark only, like the app's dark mode. */
+
+:root {
+  --bg: #000000;
+  --surface: #1c1c1e;
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --text-3: #8e8e93;
+  --brand: #ff5a1f;
+  --radius: 20px;
+  --gutter: 16px;
+  --measure: 40rem;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.0625rem; /* 17px */
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 720px) {
+  body {
+    font-size: 1.125rem; /* 18px */
+  }
+}
+
+a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout */
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.top {
+  padding: 20px 0;
+}
+
+.top .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.brand img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.top nav {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9375rem;
+}
+
+.top nav a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.top nav a:hover,
+.top nav a[aria-current="page"] {
+  color: var(--text);
+}
+
+main {
+  padding: 40px 0 72px;
+}
+
+/* Type */
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2.25rem, 7vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+h2 {
+  margin-top: 56px;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  margin-top: 32px;
+  font-size: 1.125rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+p,
+ul,
+ol {
+  margin: 16px 0 0;
+}
+
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+li + li {
+  margin-top: 8px;
+}
+
+li::marker {
+  color: var(--text-3);
+}
+
+strong {
+  font-weight: 700;
+}
+
+.lede {
+  margin-top: 16px;
+  font-size: 1.1875rem;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.meta {
+  margin-top: 12px;
+  font-size: 0.9375rem;
+  color: var(--text-3);
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+/* A short summary card at the top of long pages */
+
+.card {
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.125rem;
+}
+
+.card ul {
+  margin-top: 12px;
+}
+
+.toc {
+  margin-top: 24px;
+  font-size: 0.9375rem;
+  columns: 2;
+  column-gap: 24px;
+  list-style: none;
+  padding: 0;
+}
+
+.toc li {
+  break-inside: avoid;
+  margin: 0 0 8px;
+}
+
+@media (max-width: 480px) {
+  .toc {
+    columns: 1;
+  }
+}
+
+/* Plain tables for "who sees what" */
+
+.table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table th,
+.table td {
+  padding: 12px 12px 12px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.table th {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+/* FAQ */
+
+.faq {
+  margin-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  flex: none;
+  color: var(--brand);
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.faq details[open] summary::after {
+  content: "\2212"; /* minus sign */
+}
+
+.faq .answer {
+  padding: 0 0 24px;
+  color: var(--text-2);
+}
+
+.faq .answer > :first-child {
+  margin-top: 0;
+}
+
+/* Home: one screen */
+
+.home {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 48px 0;
+}
+
+.hero {
+  text-align: left;
+}
+
+.hero .icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
+}
+
+.hero h1 {
+  margin-top: 32px;
+}
+
+.hero .lede {
+  max-width: 30rem;
+}
+
+.store {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: border-color 120ms ease-out, transform 100ms ease-out;
+}
+
+.store:hover {
+  border-color: var(--text);
+}
+
+.store:active {
+  transform: scale(0.98);
+}
+
+.store .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 40px;
+  padding: 0;
+  list-style: none;
+}
+
+.links li + li {
+  margin-top: 0;
+}
+
+/* Footer */
+
+footer {
+  padding: 32px 0 40px;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--text-3);
+}
+
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+}
+
+footer nav {
+  display: flex;
+  gap: 20px;
+}
+
+footer a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
